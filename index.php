@@ -19,26 +19,38 @@
                 <li><a href="Actividades.html"><i class="fas fa-calendar-alt"></i> Actividades</a></li>
                 <li><a href="index.php?gestion=estudiante"><i class="fas fa-users"></i> Estudiantes</a></li>
                 <li><a href="index.php?gestion=profesor"><i class="fas fa-users"></i> Profes</a></li>
-                <li><a href="Login.html"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                <li><a href="index.php?gestion=cerrar"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
             </ul>
         </div>
         <div class="content">
             <?php
+            session_start();
             require_once('modelo/conexion.php');
 
-            $controlador = isset($_GET['gestion']) ? $_GET['gestion'] : 'profesor';
-            include_once "controlador/{$controlador}_controlador.php";
-            
-            $action = isset($_GET['action']) ? $_GET['action'] : 'index';
-            
-            if ($action == 'create') {
-                create();
-            } elseif ($action == 'update') {
-                update();
-            } elseif ($action == 'delete') {
-                delete();
+            echo 'Hola, ' . ($_SESSION['username'] ?? 'Invitado');
+
+            if(!isset($_SESSION['username'])){
+                include_once "controlador/autenticacion_controlador.php";
+                login();
+            }elseif(isset($_GET['gestion']) && $_GET['gestion'] =="cerrar"){
+                include_once "controlador/autenticacion_controlador.php";
+                cerrar();
             }else{
-                index();
+
+                $controlador = isset($_GET['gestion']) ? $_GET['gestion'] : 'profesor';
+                include_once "controlador/{$controlador}_controlador.php";
+                
+                $action = isset($_GET['action']) ? $_GET['action'] : 'index';
+                
+                if ($action == 'create') {
+                    create();
+                } elseif ($action == 'update') {
+                    update();
+                } elseif ($action == 'delete') {
+                    delete();
+                }else{
+                    index();
+                }
             }
             ?>
         </div>

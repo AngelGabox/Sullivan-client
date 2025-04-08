@@ -4,7 +4,7 @@
         <form method="GET" action="index.php" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
         <input type="text" name="buscar" placeholder="Buscar profesor..." value="<?= isset($_GET['buscar']) ? htmlspecialchars($_GET['buscar']) : '' ?>" />
         <button type="submit">🔍 Buscar</button>
-            <a href="index.php?">
+            <a href="index.php?gestion=profesor&action=create">
                 <button type="button">➕ Agregar Profe</button>
             </a>
         </form>
@@ -39,7 +39,7 @@
             <td><?= $profesor['Telefono'] ?></td>
             <td><?= $profesor['Correo_Electronico'] ?></td>
             <td><?= $profesor['Especialidad'] ?></td>
-            <td>
+            <td class="acciones">
                 <a href="index.php?action=update&id=<?= $profesor['ID_Profesor'] ?>">Editar</a>
                 <a href="index.php?action=delete&id=<?= $profesor['ID_Profesor'] ?>">Eliminar</a>
             </td>

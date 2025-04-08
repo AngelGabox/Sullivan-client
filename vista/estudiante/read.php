@@ -43,9 +43,9 @@
             <td><?= $estudiante['Telefono'] ?></td>
             <td><?= $estudiante['Correo_Electronico'] ?></td>
             <td><?= $estudiante['Nivel_Academico'] ?></td>
-            <td>
-                <a href="index.php?action=update&id=<?= $estudiante['ID_Estudiante'] ?>">Editar</a>
-                <a href="index.php?action=delete&id=<?= $estudiante['ID_Estudiante'] ?>">Eliminar</a>
+            <td class="acciones">
+                <a href="index.php?gestion=estudiante&action=update&id=<?= $estudiante['ID_Estudiante'] ?>">Editar</a>
+                <a href="index.php?gestion=estudiante&action=delete&id=<?= $estudiante['ID_Estudiante'] ?>">Eliminar</a>
             </td>
         </tr>
         <?php endforeach; ?>

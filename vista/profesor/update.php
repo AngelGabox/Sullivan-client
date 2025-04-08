@@ -13,7 +13,7 @@ if (!$profesor) {
 }
 ?>
 <form method="POST" action="index.php?action=update">
-    <input type="hidden" name="id_profesor" value="<?= $profesor['ID_Profesor'] ?>">
+    <input type="hidden" name="id" value="<?= $profesor['ID_Profesor'] ?>">
     
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" value="<?= $profesor['Nombre'] ?>" required>

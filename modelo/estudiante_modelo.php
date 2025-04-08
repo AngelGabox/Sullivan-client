@@ -16,7 +16,7 @@ function createEstudiante($nombre, $apellido, $fecha_nacimiento, $direccion, $te
     mysqli_begin_transaction($conn);
     try {
         $sql_persona = "INSERT INTO estudiante (Nombre, Apellido, Fecha_Nacimiento, Direccion, Telefono, Correo_Electronico, Nivel_Academico) 
-                        VALUES ('$nombre', '$apellido', '$fecha_nacimiento', '$direccion', '$telefono', '$correo')";
+                        VALUES ('$nombre', '$apellido', '$fecha_nacimiento', '$direccion', '$telefono', '$correo', '$nivel_academico')";
         mysqli_query($conn, $sql_persona);        
         mysqli_commit($conn);
         mysqli_close($conn);
@@ -71,7 +71,7 @@ function deleteEstudiante($id_estudiante) {
 function getEstudianteById($id_estudiante) {
     $conn = connect();
     $sql = "SELECT * FROM estudiante
-            WHERE p.ID_Estudiante = ?";
+            WHERE ID_Estudiante = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "i", $id_estudiante);
     mysqli_stmt_execute($stmt);

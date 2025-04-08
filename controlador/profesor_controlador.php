@@ -28,7 +28,7 @@ function create() {
 function update() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         updateProfesor(
-            $_POST['id_profesor'],
+            $_POST['id'],
             $_POST['nombre'],
             $_POST['apellido'],
             $_POST['fecha_nacimiento'],

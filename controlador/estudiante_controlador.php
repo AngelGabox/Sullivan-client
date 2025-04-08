@@ -17,7 +17,7 @@ function create() {
             $_POST['correo'],
             $_POST['nivel_academico']
         );
-        header("Location: index.php"); // Redirige a la página principal después de la inserción
+        header("Location: index.php?gestion=estudiante"); // Redirige a la página principal después de la inserción
     }
     include 'vista/estudiante/create.php'; // Carga la vista del formulario de creación
 }
@@ -34,7 +34,7 @@ function update() {
             $_POST['correo'],
             $_POST['nivel_academico']
         );
-        header("Location: index.php"); 
+        header("Location: index.php?gestion=estudiante"); 
     }
     include 'vista/estudiante/update.php'; // Carga la vista del formulario de actualización
 }
