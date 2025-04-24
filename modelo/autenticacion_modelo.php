@@ -2,8 +2,8 @@
 
 function loguear() {
 
-    $valid_username = "Juan Pulido";
-    $valid_password = "123456";
+    $valid_username = "usuario";
+    $valid_password = "1234";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Corrección aquí
         $username = $_POST['username'];
